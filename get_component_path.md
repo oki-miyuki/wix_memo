@@ -7,9 +7,11 @@
 
 以下の a.dll がインストールされた場所を取得する関数の使い方です。  
 
+```
  <Component Id="FooDLLs" Guid="74FF636D-88BD-4066-9DD3-9D1DE1C4604A">   
    <File Id="x86.a.dll" Name="a.dll" Source="D:¥Src¥x86¥a.dll" />  
  </Component>  
+```
  
 アンインストール時、または、アップグレード時に取得する事が可能です。  
 ```
@@ -39,16 +41,24 @@ std::wstring getInstalledFilePath(MSIHANDLE hInstall, const wchar_t* component_g
 ```
 
 インストール時のカスタムアクションは、not Installed を指定する
+```
 <Custom Action="CA_Bar" After="LaunchConditions">not Installed</Custom>
+```
 
 アンインストール時のカスタムアクションは、Remove="ALL" を指定する
+```
 <Custom Action="CA_Foo" After="InstallInitialize">Remove="ALL"</Custom>
+```
 
 アップグレード時のカスタムアクションは、 Installed を指定する
+```
 <Custom Action="CA_Bar" After="LaunchConditions">Installed</Custom>
+```
 
 アンインストール時、または、アップグレード時
+```
 <Custom Action="CA_Bar" After="LaunchConditions">Installed OR Remove="ALL"</Custom>
+```
 
 MsiGetComponentPath API のドキュメントが酷い。  
 まず、GUID の入力フォーマットが書かれていないので、GUIDパラメータに何を渡せば動作するのかわからない。  
