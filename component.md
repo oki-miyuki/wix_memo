@@ -4,10 +4,12 @@
 
 ## コピーされないファイルが生じる
 
+```
  <Component Id="FooDLLs" Guid="74FF636D-88BD-4066-9DD3-9D1DE1C4604A">   
    <File Id="x86.a.dll" Name="a.dll" Source="D:¥Src¥x86¥a.dll" />  
    <File Id="x86.b.dll" name="b.dll" Source="D:¥Src¥x86¥b.dll" />  
  </Component>  
+ ```
  
  このような構成でインストーラが実行される時、インストール先に a.dll が存在すると、b.dll がコピーされません。
 中途半端にファイルが残った状態でインストーラを実行すると必要なファイルがコピーされないままインストールが完了してしまうインストーラが出来上がります。
